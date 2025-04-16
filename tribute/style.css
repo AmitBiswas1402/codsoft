@@ -1,0 +1,105 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #111;
+    color: #ffd700;
+    line-height: 1.6;
+    background-attachment: fixed;
+  }
+  
+  /* Hero with Collage */
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .collage {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
+  }
+  .collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) grayscale(20%);
+  }
+  
+  /* Overlay */
+  .hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 2;
+  }
+  
+  /* Text on Top */
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 10px #000;
+  }
+  .hero-text p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-style: italic;
+    color: #ffd700;
+  }
+  
+  /* Main Content */
+  .content {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .section {
+    margin-bottom: 3rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ffd70055;
+  }
+  .section h2 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+  }
+  .section ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Video */
+  .video-section iframe {
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ffd70088;
+  }
+  
+  /* Footer */
+  footer {
+    background: #000;
+    color: #ffd700;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
