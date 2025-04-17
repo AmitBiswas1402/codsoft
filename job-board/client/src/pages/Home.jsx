@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import JobListing from "../components/JobListing";
 import NavBar from "../components/NavBar";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
         <NavBar />
         <Hero />
+        <JobListing />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Hero = () => {
       title: titleRef.current.value,
       location: locationRef.current.value,
     });
-    setIsSearched(true);
+    setIsSearched(true)
   };
 
   return (
@@ -48,7 +48,10 @@ const Hero = () => {
               className="max-sm:text-xs p-2 rounded outline-none "
             />
           </div>
-          <button className="bg-blue-600 px-6 py-2 rounded text-white m-1">
+          <button
+            onClick={onSearch}
+            className="bg-blue-600 px-6 py-2 rounded text-white m-1 cursor-pointer"
+          >
             Search
           </button>
         </div>
