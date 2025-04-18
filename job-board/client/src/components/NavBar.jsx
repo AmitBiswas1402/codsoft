@@ -15,8 +15,8 @@ const NavBar = () => {
             <button className="bg-blue-500 text-slate-50 rounded-full px-3 py-2">
               <Link to={"/applications"}>Applied Jobs</Link>
             </button>
-            <p className="font-bold"> | </p>
-            <p className="font-bold">Hi, {user.firstName + " " + user.lastName}</p>
+            <p className="font-light"> | </p>
+            <p className="font-light max-sm:hidden">Hi, {user.firstName + " " + user.lastName}</p>
             <UserButton />
           </div>
         ) : (

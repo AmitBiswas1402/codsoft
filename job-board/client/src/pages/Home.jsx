@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import JobListing from "../components/JobListing";
 import NavBar from "../components/NavBar";
@@ -8,6 +9,7 @@ const Home = () => {
         <NavBar />
         <Hero />
         <JobListing />
+        <Footer />
     </div>
   );
 };
