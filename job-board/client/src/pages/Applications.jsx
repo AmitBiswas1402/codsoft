@@ -8,7 +8,7 @@ const Applications = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 min-h-[65vh] 2xl:px-20 my-10">
+      <div className="container mx-auto px-4 2xl:px-20 my-10">
         <h2 className="text-xl font-semibold">Your Resume</h2>
         <div className="flex gap-2 mb-6 mt-3">
           {isEdit ? (
@@ -54,36 +54,64 @@ const Applications = () => {
             </div>
           )}
         </div>
-        <h2>Jobs Applied</h2>
-        <table>
+
+        <h2 className="text-xl font-semibold mb-4">Jobs Applied</h2>
+        <table className="min-w-full bg-white rounded-lg">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Job Title</th>
-              <th>Location</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left">
+                Company
+              </th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left">
+                Job Title
+              </th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left max-sm:hidden">
+                Location
+              </th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left max-sm:hidden">
+                Date
+              </th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left">
+                Status
+              </th>
             </tr>
           </thead>
           <tbody>
-            {jobsApplied.map((job, index) =>
-              true ? (
-                <tr>
-                  <td>
-                    <img src={job.logo} alt="" />
-                    {job.company}
-                  </td>
-                  <td>{job.title}</td>
-                  <td>{job.location}</td>
-                  <td>{moment(job.date).format("ll")}</td>
-                  <td>{job.status}</td>
-                </tr>
-              ) : null
-            )}
+            {jobsApplied.map((job, index) => (
+              <tr key={index}>
+                <td className="py-3 px-4 flex items-center gap-2 border-b border-gray-200">
+                  <img className="w-8 h-8" src={job.logo} alt="" />
+                  {job.company}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-200">
+                  {job.title}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-200 max-sm:hidden">
+                  {job.location}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-200 max-sm:hidden">
+                  {moment(job.date).format("ll")}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-200">
+                  <span
+                    className={`${
+                      job.status === "Accepted"
+                        ? "bg-green-100"
+                        : job.status === "Rejected"
+                        ? "bg-red-100"
+                        : "bg-blue-100"
+                    } px-4 py-1.5 rounded`}
+                  >
+                    {job.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </>
   );
 };
+
 export default Applications;
