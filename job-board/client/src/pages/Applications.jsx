@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { assets, jobsApplied } from "../assets/assets";
 import moment from "moment";
+import NavBar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Applications = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -8,6 +10,7 @@ const Applications = () => {
 
   return (
     <>
+      <NavBar />
       <div className="container mx-auto px-4 2xl:px-20 my-10">
         <h2 className="text-xl font-semibold">Your Resume</h2>
         <div className="flex gap-2 mb-6 mt-3">
@@ -110,6 +113,7 @@ const Applications = () => {
           </tbody>
         </table>
       </div>
+      <Footer />
     </>
   );
 };

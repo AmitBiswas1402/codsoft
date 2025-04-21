@@ -4,8 +4,6 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import { AppContextProvider } from "./context/AppContext.jsx";
 import { ClerkProvider } from '@clerk/clerk-react'
-import NavBar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -17,9 +15,7 @@ createRoot(document.getElementById("root")).render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
     <BrowserRouter>
       <AppContextProvider>
-        <NavBar />
         <App />
-        <Footer />
       </AppContextProvider>
     </BrowserRouter>
   </ClerkProvider>

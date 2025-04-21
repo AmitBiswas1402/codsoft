@@ -6,6 +6,8 @@ import { assets } from "../assets/assets";
 import kconvert from "k-convert";
 import moment from "moment";
 import JobCard from "../components/JobCard";
+import NavBar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ApplyJob = () => {
   const { id } = useParams();
@@ -14,15 +16,15 @@ const ApplyJob = () => {
 
   const { jobs } = useContext(AppContext);
 
-  const fetchJobs = async () => {
-    const data = jobs.filter((job) => job._id === id);
-    if (data.length !== 0) {
-      setJobData(data[0]);
-      console.log(data[0]);
-    }
-  };
-
   useEffect(() => {
+    const fetchJobs = async () => {
+      const data = jobs.filter((job) => job._id === id);
+      if (data.length !== 0) {
+        setJobData(data[0]);
+        console.log(data[0]);
+      }
+    };
+
     if (jobs.length > 0) {
       fetchJobs();
     }
@@ -30,6 +32,7 @@ const ApplyJob = () => {
 
   return jobData ? (
     <>
+      <NavBar />
       <div className="min-h-screen flex flex-col py-10 container px-4 2xl:px-20 mx-auto">
         <div className="bg-white text-black rounded-lg w-full">
           <div className="flex justify-center md:justify-between flex-wrap gap-8 px-14 py-20 mb-6 bg-sky-50 border border-sky-400 rounded-xl">
@@ -93,7 +96,7 @@ const ApplyJob = () => {
                 .filter(
                   (job) =>
                     job._id !== jobData._id &&
-                    job.companyId._id === jobData.companyId._id 
+                    job.companyId._id === jobData.companyId._id
                 )
                 .slice(0, 4)
                 .map((job, index) => (
@@ -103,6 +106,7 @@ const ApplyJob = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   ) : (
     <Loader />
