@@ -11,17 +11,17 @@ const Dashboard = () => {
         <div className="px-5 flex justify-between items-center">
           <img
             onClick={() => navigate("/")}
-            className="max-sm:w-32 cursor-pointer"
+            className="w-32 sm:w-40 cursor-pointer"
             src={assets.logo}
-            alt=""
+            alt="logo"
           />
           <div className="flex items-center gap-3">
-            <p className="max-sm:hidden">Welcome, Job Board</p>
+            <p className="hidden sm:block">Welcome, Job Board</p>
             <div className="relative group">
               <img
                 className="w-8 rounded-full cursor-pointer"
                 src={assets.company_icon}
-                alt=""
+                alt="company"
               />
               {/* Hover Dropdown */}
               <div className="absolute hidden group-hover:block top-0 -left-10 z-10 text-black rounded pt-12">
@@ -36,51 +36,51 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Flex Body (Sidebar + Outlet) */}
-      <div className="flex flex-1 min-h-0">
+      {/* Flex Body */}
+      <div className="flex flex-1 min-h-0 flex-col sm:flex-row">
         {/* Left Sidebar */}
-        <div className="w-60 border-r-2 border-gray-200 min-h-screen">
-          <ul className="flex flex-col items-start pt-5 text-gray-800">
+        <div className="w-full sm:w-60 border-b-2 sm:border-b-0 sm:border-r-2 border-gray-200">
+          <ul className="flex flex-row sm:flex-col justify-around sm:items-start pt-4 text-gray-800">
             <NavLink
               className={({ isActive }) =>
-                `flex items-center p-3 sm:px-6 gap-2 w-full ${
-                  isActive ? "bg-blue-100 border-r-4 border-blue-500" : ""
+                `flex flex-col sm:flex-row items-center p-2 sm:px-6 gap-1 sm:gap-2 w-full text-center ${
+                  isActive ? "bg-blue-100 border-b-4 sm:border-b-0 sm:border-r-4 border-blue-500" : ""
                 }`
               }
               to="/dashboard/add-job"
             >
-              <img className="min-w-4" src={assets.add_icon} alt="" />
-              <p className="max-sm:hidden">Add Job</p>
+              <img className="w-5" src={assets.add_icon} alt="add" />
+              <p className="text-xs sm:text-base">Add Job</p>
             </NavLink>
 
             <NavLink
               className={({ isActive }) =>
-                `flex items-center p-3 sm:px-6 gap-2 w-full ${
-                  isActive ? "bg-blue-100 border-r-4 border-blue-500" : ""
+                `flex flex-col sm:flex-row items-center p-2 sm:px-6 gap-1 sm:gap-2 w-full text-center ${
+                  isActive ? "bg-blue-100 border-b-4 sm:border-b-0 sm:border-r-4 border-blue-500" : ""
                 }`
               }
               to="/dashboard/manage-jobs"
             >
-              <img className="min-w-4" src={assets.home_icon} alt="" />
-              <p className="max-sm:hidden">Manage Jobs</p>
+              <img className="w-5" src={assets.home_icon} alt="manage" />
+              <p className="text-xs sm:text-base">Manage Jobs</p>
             </NavLink>
 
             <NavLink
               className={({ isActive }) =>
-                `flex items-center p-3 sm:px-6 gap-2 w-full ${
-                  isActive ? "bg-blue-100 border-r-4 border-blue-500" : ""
+                `flex flex-col sm:flex-row items-center p-2 sm:px-6 gap-1 sm:gap-2 w-full text-center ${
+                  isActive ? "bg-blue-100 border-b-4 sm:border-b-0 sm:border-r-4 border-blue-500" : ""
                 }`
               }
               to="/dashboard/view-applications"
             >
-              <img className="min-w-4" src={assets.person_icon} alt="" />
-              <p className="max-sm:hidden">View Applications</p>
+              <img className="w-5" src={assets.person_icon} alt="view" />
+              <p className="text-xs sm:text-base">View Applications</p>
             </NavLink>
           </ul>
         </div>
 
-        {/* Right Page Content */}
-        <div className="flex-1 p-4 overflow-y-auto">
+        {/* Right Content */}
+        <div className="flex-1 p-3 sm:p-6 overflow-y-auto">
           <Outlet />
         </div>
       </div>
