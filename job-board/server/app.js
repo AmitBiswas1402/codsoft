@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectToDB from "./db/db.js";
 import { clerkWebhooks } from "./controllers/webhooks.js";
+import companyRoutes from "./routes/company.routes.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Job Board API");
 });
 app.post('/webhooks', clerkWebhooks);
+app.use("/api/company", companyRoutes);
 
 // The error handler must be registered before any other error middleware and after all controllers
 Sentry.setupExpressErrorHandler(app);
